@@ -1,0 +1,20 @@
+# This is a simple universal stylesheet (USS)
+# The default paper size is A4
+document:
+    background: rgb(1,1,1)
+    color: rgb(0.3,0.3,0.3)
+    font:
+        family: sans
+        name: Sans Serif
+        size: 12pt
+    text:
+        align: left
+    margin: 2em
+    columns: 1
+h1:
+    font:
+        size: 24pt
+    color: rgb(0,0,0)
+    text:
+        align: center
+        style: underline
