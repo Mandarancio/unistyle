@@ -17,7 +17,7 @@ unistr_new (void)
 
 void
 unistr_puts (UniStr *str,
-      char   *data)
+             const char   *data)
 {
   size_t n = strlen(data);
   if (n)

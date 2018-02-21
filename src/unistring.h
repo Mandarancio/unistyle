@@ -10,10 +10,10 @@ struct UniStr
 } typedef UniStr;
 
 UniStr    *unistr_new    (void);
-void       unistr_puts   (UniStr *str,
-                          char   *data);
-void       unistr_printf (UniStr *str,
-                          const char *fmt,
+void       unistr_puts   (UniStr       *str,
+                          const char   *data);
+void       unistr_printf (UniStr       *str,
+                          const char   *fmt,
                           ...);
 
 #endif
