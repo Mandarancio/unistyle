@@ -25,6 +25,8 @@ To try out the converter simply:
 ```
 cd build
 ./convert --css input.uss
-# or for tex
-./convert --text input.uss
+# or for tex classes
+./convert --cls input.uss
+# or for AST
+./convert --ast input.uss
 ```

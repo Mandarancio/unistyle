@@ -7,7 +7,7 @@
 enum MODE {
     CLS,
     CSS,
-    ASL
+    AST
 } typedef MODE;
 
 off_t fsize(const char *filename) {
@@ -23,7 +23,7 @@ int main(int argc, char* argv[])
 {
     if (argc < 2)
     {
-        printf("usage: charter [--cls | --css | --asl] file\n");
+        printf("usage: charter [--cls | --css | --ast] file\n");
         return -1;
     }
     MODE mode = CSS;
@@ -38,13 +38,13 @@ int main(int argc, char* argv[])
     {
         if (!strcmp(argv[1], "--cls"))
             mode = CLS;
-        else if (!strcmp(argv[1], "--asl"))
-            mode = ASL;
+        else if (!strcmp(argv[1], "--ast"))
+            mode = AST;
     }
 
     /** TODO do your magic **/
     Style * style = parse(fcontent);
-    if (mode == ASL)
+    if (mode == AST)
     {
         style_print(style);
     }
