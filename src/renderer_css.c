@@ -62,9 +62,14 @@ rndr_element(UniStr *buffer,
   case TITLE:
     rndr_el(buffer, ".title", element->list, (Renderer *)rndr);
     break;
-
   case AUTHOR:
     rndr_el(buffer, ".authors", element->list, (Renderer *)rndr);
+    break;
+  case PARAGRAPH:
+    rndr_el(buffer, "p", element->list, (Renderer *)rndr);
+    break;
+  case QUOTE:
+    rndr_el(buffer, "blockquote", element->list, (Renderer *)rndr);
     break;
   default:
     break;
