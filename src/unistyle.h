@@ -2,6 +2,7 @@
 #define __UNISTYLE__H__
 
 #include <yaml.h>
+#include "unistring.h"
 
 enum EType {
   DOCUMENT,
@@ -87,12 +88,27 @@ struct Style {
 } typedef Style;
 
 
+struct Renderer {
+  void (*element)    (UniStr     *,
+                      Element    *,
+                      void       *);
+  void (*preference) (UniStr     *,
+                      Preference *,
+                      void       *);
+  void (*value)      (UniStr     *,
+                      Value      *,
+                      void       *);
+} typedef Renderer;
+
+
+
 EType       elem_type_parse (char          *val);
 PType       pref_type_parse (char          *val);
 
 Value      *value_new       (VType          type,
                              void          *raw);
 void        value_free      (Value         *val);
+void        value_print     (Value         *val);
 
 Preference *preference_new  (PType          type,
                              Value         *val);
@@ -128,5 +144,9 @@ PrefList   *parse_preference (PrefList     *list,
 
 
 Style      *parse           (char          *data);
+char       *render          (Style         *style,
+                             Renderer       renderer);
+char       *render_css      (Style         *style);
+char       *render_cls      (Style         *style);
 
 #endif

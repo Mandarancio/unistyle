@@ -6,8 +6,12 @@ project('UniStyle', 'c',
 PROJECT_NAME = 'unistyle'
 
 lib_src = [
+  'src/unistring.c',
+  'src/renderer_cls.c',
+  'src/renderer_css.c',
   'src/common.c',
-  'src/unistyle.c'
+  'src/unistyle.c',
+  'src/render.c'
 ]
 
 bin_src = [

@@ -16,7 +16,12 @@ value_new(VType type,
 }
 
 void value_free(Value *val) {
-  free(val->raw);
+  if (val->type == CATEGORY)
+  {
+    pref_list_free((PrefList*)val->raw);
+  } else {
+    free(val->raw);
+  }
   free(val);
 }
 
@@ -125,9 +130,9 @@ void pref_list_free(PrefList *list) {
   if(list) {
     if(list->next) {
       pref_list_free(list->next);
-      preference_free(list->preference);
-      free(list);
     }
+    preference_free(list->preference);
+    free(list);
   }
 }
 
@@ -243,6 +248,7 @@ void elem_list_free(ElemList *list) {
   if(list->next) {
     elem_list_free(list->next);
   }
+  element_free(list->el);
   free(list);
 }
 
@@ -269,9 +275,8 @@ elem_list_add(ElemList *list,
 }
 
 void style_free(Style *st) {
-  if(st->list) {
-    style_free(st);
-  }
+  elem_list_free(st->list);
+  free(st);
 }
 
 Style *
