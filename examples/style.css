@@ -6,8 +6,6 @@ body {
 	font-size: 12pt;
 	text-align: justify;
 	text-justify: inter-word;
-	padding: 2em;
-	columns: 1;
 }
 .authors {
 	text-align: center;
@@ -21,6 +19,7 @@ body {
 	text-decoration: underline;
 }
 h2 {
+	margin-top: 0;
 	font-size: 22pt;
 }
 h3 {
@@ -34,5 +33,13 @@ h5 {
 }
 h6 {
 	font-size: 14pt;
+}
+.inner {
+	margin-top: 20pt;
+	margin-right: 5pt;
+	margin-left: 5pt;
+	margin-bottom: 30pt;
+	columns: 2;
+	column-gap: 20pt;
 }
 

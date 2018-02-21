@@ -176,6 +176,12 @@ void element_print(Element *elem) {
   case DOCUMENT:
     printf("Document");
     break;
+  case INNER:
+    printf("Inner");
+    break;
+  case HEADER:
+    printf("Header");
+    break;
   case H1:
     printf("H1");
     break;
@@ -297,6 +303,10 @@ void style_print(Style *style) {
 EType elem_type_parse(char *val) {
   if(strcmp(val, "document") == 0)
     return DOCUMENT;
+  if(strcmp(val, "inner") == 0)
+    return INNER;
+  if(strcmp(val, "header") == 0)
+    return HEADER;
   if(strcmp(val, "title") == 0)
     return TITLE;
   if(strcmp(val, "author") == 0)
@@ -358,8 +368,20 @@ PType pref_type_parse(char *val) {
     return MARGIN_BOTTOM;
   if(!strcmp(val, "right") || !strcmp(val, "margin-right"))
     return MARGIN_RIGHT;
+  if(!strcmp(val, "padding"))
+    return PADDING;
+  if(!strcmp(val, "padding-top"))
+    return PADDING_TOP;
+  if(!strcmp(val, "padding-left"))
+    return PADDING_LEFT;
+  if(!strcmp(val, "padding-bottom"))
+    return PADDING_BOTTOM;
+  if(!strcmp(val, "padding-right"))
+    return PADDING_RIGHT;
   if(!strcmp(val, "columns"))
     return COLUMNS;
+  if(!strcmp(val, "column-gap"))
+    return COLUMN_GAP;
 
   return P_NONE;
 }

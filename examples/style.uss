@@ -9,8 +9,6 @@ document:
         size: 12pt
     text:
         align: justified
-    margin: 2em
-    columns: 1
 author:
     text-align: center
     font-weight: bold
@@ -23,6 +21,7 @@ title:
         align: center
         style: underline
 h2:
+    margin-top: 0
     font-size: 22pt
 h3:
     font-size: 20pt
@@ -32,3 +31,11 @@ h5:
     font-size: 16pt
 h6:
     font-size: 14pt
+inner:
+    margin:
+        top: 20pt
+        right: 5pt
+        left: 5pt
+        bottom: 30pt
+    columns: 2
+    column-gap: 20pt

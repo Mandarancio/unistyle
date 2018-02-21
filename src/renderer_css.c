@@ -71,6 +71,18 @@ rndr_element(UniStr *buffer,
   case QUOTE:
     rndr_el(buffer, "blockquote", element->list, (Renderer *)rndr);
     break;
+  case LIST:
+    rndr_el(buffer, "ul", element->list, (Renderer *)rndr);
+    break;
+  case ENUMERATE:
+    rndr_el(buffer, "ol", element->list, (Renderer *)rndr);
+    break;
+  case INNER:
+    rndr_el(buffer, ".inner", element->list, (Renderer *)rndr);
+    break;
+  case HEADER:
+    rndr_el(buffer, ".header", element->list, (Renderer *)rndr);
+    break;
   default:
     break;
   }
@@ -146,7 +158,7 @@ rndr_preference(UniStr *buffer,
     rndr_txt_align(buffer, preference->value, (Renderer *)rndr);
     break;
   case MARGIN:
-    rndr_pref(buffer, "padding", preference, (Renderer *)rndr);
+    rndr_pref(buffer, "margin", preference, (Renderer *)rndr);
     break;
   case FONT_SIZE:
     rndr_pref(buffer, "font-size", preference, (Renderer *)rndr);
@@ -155,19 +167,22 @@ rndr_preference(UniStr *buffer,
     rndr_pref(buffer, "font-weight", preference, (Renderer *)rndr);
     break;
   case MARGIN_BOTTOM:
-    rndr_pref(buffer, "padding-bottom", preference, (Renderer *)rndr);
+    rndr_pref(buffer, "margin-bottom", preference, (Renderer *)rndr);
     break;
   case MARGIN_TOP:
-    rndr_pref(buffer, "padding-top", preference, (Renderer *)rndr);
+    rndr_pref(buffer, "margin-top", preference, (Renderer *)rndr);
     break;
   case MARGIN_LEFT:
-    rndr_pref(buffer, "padding-left", preference, (Renderer *)rndr);
+    rndr_pref(buffer, "margin-left", preference, (Renderer *)rndr);
     break;
   case MARGIN_RIGHT:
-    rndr_pref(buffer, "padding-right", preference, (Renderer *)rndr);
+    rndr_pref(buffer, "margin-right", preference, (Renderer *)rndr);
     break;
   case COLUMNS:
     rndr_pref(buffer, "columns", preference, (Renderer *)rndr);
+    break;
+  case COLUMN_GAP:
+    rndr_pref(buffer, "column-gap", preference, (Renderer*)rndr);
     break;
   case TEXT_STYLE:
     rndr_txt_style(buffer, preference->value, (Renderer *)rndr);
