@@ -115,6 +115,10 @@ rndr_txt_style(UniStr *buf,
     unistr_printf(buf, "\ttext-transform: %s;\n", prop);
     return;
   }
+  if (!strcmp(prop, "nowrap")) {
+    unistr_printf(buf, "\twhite-space: %s;\n", prop);
+    return;
+  }
 }
 
 static void
